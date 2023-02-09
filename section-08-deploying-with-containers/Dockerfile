@@ -18,7 +18,7 @@ RUN git clone https://github.com/limbertlopezl/MLOPS_M16.git /opt/ML_Deploy_MSCD
 
 #COPY /ML_Deploy_MSCD/section-08-deploying-with-containers /opt
 WORKDIR /opt/ML_Deploy_MSCD/section-08-deploying-with-containers
-RUN git checkout mscd_pablo
+#RUN git checkout mscd_pablo
 
 WORKDIR /opt/ML_Deploy_MSCD/section-08-deploying-with-containers/house-prices-api
 RUN pip install --upgrade pip
