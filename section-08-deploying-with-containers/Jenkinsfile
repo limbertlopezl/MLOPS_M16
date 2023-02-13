@@ -24,7 +24,8 @@ pipeline{
 
         stage('Deploying to prod'){
             steps{
-                echo "Deploying to prod env..."
+                sh "pip install uvicorn"
+                sh " uvicorn section-06-model-serving-api\house-prices-api\app.main:app --reload"
             }
         }
     }
