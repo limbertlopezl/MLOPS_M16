@@ -25,7 +25,7 @@ pipeline{
         stage('Deploying to prod'){
             steps{
                 sh "pip install uvicorn"
-                sh "uvicorn section-06-model-serving-api\house-prices-api\app.main:app --reload"
+                sh "uvicorn section-06-model-serving-api/house-prices-api/app.main:app --reload"
             }
         }
     }
