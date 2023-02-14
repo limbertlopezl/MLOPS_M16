@@ -2,29 +2,25 @@ pipeline{
     agent any
     
     stages{
-        stage('Checkout...'){
+        stage('instalar paquetes.'){
             steps{
-                echo "Checkout code..."
+                echo "Instalar Paquetes"
+                sh "pip install tox"
+                sh "python3 -m tox -c section-05-production-model-package/tox.ini -e test_package"
+                sh "python3 -m tox -c section-05-production-model-package/tox.ini -e train"
             }
         }
         
-        stage('Hello'){
-            steps{                
-                sh "pip install tox"                
-            }
-        }
-        
-        stage('TOX-Train model..'){
+        stage('Paquete de Apis.'){
             steps{
                 echo "running text on Section-05 Model Package"
-                sh "python3 -m tox -c section-05-production-model-package/tox.ini -e test_package"
-
+                sh "pip install -r section-06-model-serving-api/requirements.txt"
+                sh "python3 -m tox -c section-06-model-serving-api/tox.ini -e test_app"
             }
         }
 
-        stage('Deploying to prod'){
+        stage('Copiar a Produccion'){
             steps{
-                sh "pip install uvicorn"
                 sh "uvicorn section-06-model-serving-api/house-prices-api/app.main:app --reload"
             }
         }
