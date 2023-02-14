@@ -14,8 +14,8 @@ pipeline{
         stage('Paquete de Apis.'){
             steps{
                 echo "running text on Section-05 Model Package"
-                sh "pip install -r section-06-model-serving-api/requirements.txt"
-                sh "python3 -m tox -c section-06-model-serving-api/tox.ini -e test_app"
+                sh "pip install -r section-06-model-serving-api/house-prices-api/requirements.txt"
+                sh "python3 -m tox -c section-06-model-serving-api/house-prices-api/tox.ini -e test_app"
             }
         }
 
