@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    
+            
     stages{
         stage('instalar paquetes.'){
             steps{
@@ -21,7 +21,7 @@ pipeline{
 
         stage('Copiar a Produccion'){
             steps{
-                sh "docker cp 22a4262dda47:/var/jenkins_home/workspace/deploy-test/section-06-model-serving-api ."
+                sh "git push origin master"
             }
         }
     }
