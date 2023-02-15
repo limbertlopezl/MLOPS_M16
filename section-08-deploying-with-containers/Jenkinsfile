@@ -21,7 +21,7 @@ pipeline{
 
         stage('Copiar a Produccion'){
             steps{
-                sh "uvicorn section-06-model-serving-api/house-prices-api/app.main:app --reload"
+                sh "docker cp 22a4262dda47:/var/jenkins_home/workspace/deploy-test/section-06-model-serving-api ."
             }
         }
     }
