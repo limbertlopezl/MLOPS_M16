@@ -21,7 +21,7 @@ pipeline{
 
         stage('Copiar a Produccion'){
             steps{
-                sh "git push origin master"
+                sh "cp -r section-06-model-serving-api/house-prices-api/  proyecto_api/"
             }
         }
     }
